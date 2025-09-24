@@ -15,8 +15,24 @@
 
     body {
       scroll-behavior: smooth;
-      background: #f5f5f5;
-      color: #333;
+      background: #000; /* Black background */
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Stars Background */
+    .stars {
+      width: 2px;
+      height: 2px;
+      background: white;
+      position: absolute;
+      animation: twinkle 2s infinite alternate;
+      border-radius: 50%;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
     }
 
     header {
@@ -24,8 +40,8 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 2px 5px rgba(255,255,255,0.1);
       z-index: 1000;
     }
 
@@ -55,7 +71,7 @@
 
     nav ul li a {
       text-decoration: none;
-      color: #333;
+      color: #fff;
       font-weight: 500;
       transition: color 0.3s;
     }
@@ -70,13 +86,17 @@
       justify-content: center;
       align-items: center;
       padding: 60px 20px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero {
-      background: linear-gradient(135deg, #ff4b2b, #ff416c);
+      background: linear-gradient(135deg, rgba(255,75,43,0.8), rgba(255,65,108,0.8));
       color: #fff;
       flex-direction: column;
       text-align: center;
+      border-radius: 15px;
+      padding: 50px;
     }
 
     .hero h1 {
@@ -103,11 +123,6 @@
       transform: scale(1.1);
     }
 
-    .about, .skills, .projects, .contact {
-      max-width: 1000px;
-      margin: auto;
-    }
-
     h2 {
       font-size: 2rem;
       color: #ff4b2b;
@@ -130,10 +145,11 @@
     }
 
     .skill, .project {
-      background: #fff;
+      background: #111;
+      color: #fff;
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(255,255,255,0.1);
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
       width: 200px;
@@ -141,7 +157,7 @@
 
     .skill:hover, .project:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 25px rgba(255,255,255,0.3);
     }
 
     .contact form {
@@ -155,9 +171,11 @@
     .contact input, .contact textarea {
       padding: 12px;
       border-radius: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #444;
       font-size: 1rem;
       width: 100%;
+      background: #222;
+      color: #fff;
     }
 
     .contact button {
@@ -178,20 +196,20 @@
     footer {
       text-align: center;
       padding: 15px 0;
-      background: #333;
+      background: #111;
       color: #fff;
     }
 
     @media(max-width: 768px){
       nav ul {
         flex-direction: column;
-        background: #fff;
+        background: #000;
         position: absolute;
         top: 60px;
         right: 20px;
         width: 200px;
         display: none;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 15px rgba(255,255,255,0.2);
       }
 
       nav ul.active {
@@ -219,9 +237,21 @@
 </head>
 <body>
 
+  <!-- Stars generated dynamically -->
+  <script>
+    for (let i = 0; i < 100; i++) {
+      let star = document.createElement("div");
+      star.className = "stars";
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(star);
+    }
+  </script>
+
   <header>
     <nav>
-      <div class="logo">rithanya</div>
+      <div class="logo">Rithanya</div>
       <div class="menu-toggle">&#9776;</div>
       <ul>
         <li><a href="#hero">Home</a></li>
@@ -234,7 +264,7 @@
   </header>
 
   <section class="hero" id="hero">
-    <h1>Hello, I'm rithanya</h1>
+    <h1>Hello, I'm Santhiya</h1>
     <p>A Creative Web Developer & Designer</p>
     <a href="#projects">View My Work</a>
   </section>
@@ -250,15 +280,15 @@
       <div class="skill">HTML</div>
       <div class="skill">CSS</div>
       <div class="skill">JavaScript</div>
-      <div class="skill">java</div>
-      <div class="skill">shift</div>
+      <div class="skill">Java</div>
+      <div class="skill">Swift</div>
     </div>
   </section>
 
   <section class="projects" id="projects">
     <h2>Projects</h2>
     <div class="projects-container">
-      <div class="project">Project 1</div>
+      <div class="project">project 1</div>
       
     </div>
   </section>
@@ -274,7 +304,7 @@
   </section>
 
   <footer>
-    &copy; 2025 rithanya. All rights reserved.
+    &copy; 2025 Rithanya. All rights reserved.
   </footer>
 
   <script>
